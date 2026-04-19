@@ -1,0 +1,113 @@
+/* Login.css */
+
+.login-container {
+  display: flex;
+  flex-direction: column; /* Alinea título y formulario verticalmente */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+  /* Degradado con tus colores principales */
+  background: linear-gradient(135deg, #1e032a 0%, #4b104b 50%, #8b3a82 100%);
+  background-attachment: fixed;
+}
+
+.platform-header h1 {
+  color: #f2d1e1; /* Tu color secundario rosa */
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 700;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.platform-header h1 span {
+  color: #ffffff;
+  display: block; /* InnovaTech en la siguiente línea para estilo moderno */
+  font-size: 3rem;
+  letter-spacing: 2px;
+}
+
+.login-form {
+  /* Efecto Vidrio con tu color secundario #757ab3 */
+  background: rgba(117, 122, 179, 0.15); 
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  
+  padding: 2.5rem;
+  border-radius: 24px;
+  border: 1px solid rgba(242, 209, 225, 0.3); /* Borde rosa sutil */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  width: 90%;
+  max-width: 400px;
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #f2d1e1;
+  font-weight: 600;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #f2d1e1;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(242, 209, 225, 0.4);
+  border-radius: 12px;
+  color: white;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #f2d1e1;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 15px rgba(242, 209, 225, 0.2);
+}
+
+button {
+  width: 100%;
+  padding: 1rem;
+  background-color: #f2d1e1; /* Botón rosa */
+  color: #1e032a; /* Texto en el púrpura más oscuro para contraste */
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background-color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+button:disabled {
+  background-color: rgba(242, 209, 225, 0.5);
+  cursor: not-allowed;
+}
+
+.error-message {
+  background-color: rgba(255, 0, 0, 0.2);
+  color: #ffbaba;
+  padding: 0.8rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}

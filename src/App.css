@@ -1,0 +1,15 @@
+/* Esto elimina los márgenes por defecto del navegador */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden; /* Evita el scroll horizontal accidental */
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
