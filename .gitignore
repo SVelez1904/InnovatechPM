@@ -1,0 +1,15 @@
+# Datos de la base de datos (CRÍTICO)
+db/postgres_data/
+
+# Archivos de compilación de Java
+target/
+*.class
+*.jar
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+
+# Docker logs
+*.log

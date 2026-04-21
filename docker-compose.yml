@@ -11,3 +11,16 @@ services:
       - "5432:5432"
     volumes:
       - ./db/postgres_data:/var/lib/postgresql/data
+
+  api-proyectos:
+    build: ./api-proyectos
+    container_name: api_proyectos
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db-proyectos
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db-proyectos:5432/gestion_proyectos
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=admin123
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
