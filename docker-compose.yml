@@ -2,25 +2,35 @@ services:
   db-proyectos:
     image: postgres:15-alpine
     container_name: postgres_innovatech
-    restart: always
+    networks:
+      - innovatech-net
     environment:
+      - POSTGRES_DB=gestion_proyectos
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin123
-      - POSTGRES_DB=gestion_proyectos
     ports:
       - "5432:5432"
     volumes:
       - ./db/postgres_data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: always # <--- AGREGAR ESTO
 
   api-proyectos:
-    build: ./api-proyectos
+    build:
+      context: ./api-proyectos
     container_name: api_proyectos
+    restart: on-failure # <--- AGREGAR ESTO (Clave para el reintento)
     ports:
       - "8081:8081"
-    depends_on:
-      - db-proyectos
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db-proyectos:5432/gestion_proyectos
       - SPRING_DATASOURCE_USERNAME=admin
       - SPRING_DATASOURCE_PASSWORD=admin123
-      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    networks:
+      - innovatech-net
+    depends_on:
+      - db-proyectos
+
+networks:
+  innovatech-net:
+    driver: bridge
