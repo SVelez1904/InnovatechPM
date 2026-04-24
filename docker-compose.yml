@@ -21,7 +21,7 @@ services:
     container_name: api_proyectos
     restart: on-failure # <--- AGREGAR ESTO (Clave para el reintento)
     ports:
-      - "8081:8081"
+      - "8084:8081"
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db-proyectos:5432/gestion_proyectos
       - SPRING_DATASOURCE_USERNAME=admin
@@ -30,6 +30,18 @@ services:
       - innovatech-net
     depends_on:
       - db-proyectos
+
+  api-gateway:
+    build:
+      context: ./api-gateway
+    container_name: api_gateway
+    ports:
+      - "8085:8083" # Puerto 8085 en tu PC -> Puerto 8083 dentro del contenedor
+    networks:
+      - innovatech-net
+    depends_on:
+      - api-proyectos
+   
 
 networks:
   innovatech-net:
