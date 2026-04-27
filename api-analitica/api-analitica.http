@@ -1,0 +1,6 @@
+@api_analitica_HostAddress = http://localhost:5040
+
+GET {{api_analitica_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
